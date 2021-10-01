@@ -16,7 +16,7 @@ groupPanel = script-name=groupPanel,update-interval=-1
 let params = getParams($argument);
 let group = params.group;
 let proxy = await httpAPI("/v1/policy_groups");
-let groupName = (await httpAPI("/v1/policy_groups/select?group_name=Master")).policy;
+let groupName = (await httpAPI("/v1/policy_groups/select?group_name="+group+"")).policy;
 console.log(groupName)
 var proxyName= [];
 
