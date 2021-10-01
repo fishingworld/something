@@ -6,7 +6,7 @@ groupPanel = type=generic,timeout=10,script-path=groupPanel.js,argument=icon=net
 	color：图标颜色
 	group：策略组名称
 [Panel]
-groupPanel = script-name=groupPanel,update-interval=-1
+groupPanel = script-name=groupPanel,update-interval=5
 */
 
 
@@ -17,18 +17,22 @@ let params = getParams($argument);
 let group = params.group;
 let proxy = await httpAPI("/v1/policy_groups");
 let groupName = (await httpAPI("/v1/policy_groups/select?group_name="+group+"")).policy;
-console.log(groupName)
 var proxyName= [];
-
 let arr = proxy[""+group+""];
 
 for (let i = 0; i < arr.length; ++i) {
 proxyName.push(arr[i].name);
-
 }
 
 let index;
 
+for(let i = 0;i < proxyName.length; ++i) {
+	if(groupName==proxyName[i]){
+index=i
+	}
+};
+
+if($trigger == "button"){
 for(let i = 0;i < proxyName.length; ++i) {
 	if(groupName==proxyName[i]){
 index=i+1
@@ -37,9 +41,12 @@ index=i+1
 
 if(index>arr.length-1){
 	index = 0;
-}
+	}
 
-let body = {"group_name": group, "policy": proxyName[index]}
+let body = {"group_name": group, "policy": proxyName[index]};
+await httpAPI("/v1/policy_groups/select","POST",body);
+};
+
 let name =proxyName[index];
 let rootName;
 if(arr[index].isGroup==true){
@@ -47,13 +54,11 @@ if(arr[index].isGroup==true){
 	name=name + ' ➟ ' + rootName;
 }
 
-
-await httpAPI("/v1/policy_groups/select","POST",body);
     $done({
       title:group,
       content:name,
       icon: params.icon,
-		  "icon-color":params.color
+		"icon-color":params.color
     });
 })();
 
@@ -61,7 +66,6 @@ await httpAPI("/v1/policy_groups/select","POST",body);
 function httpAPI(path = "", method = "GET", body = null) {
     return new Promise((resolve) => {
         $httpAPI(method, path, body, (result) => {
-
             resolve(result);
         });
     });
