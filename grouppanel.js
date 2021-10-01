@@ -1,6 +1,6 @@
 /*
 [Script]
-groupPanel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/fishingworld/something/main/grouppanel.js,argument=icon=network&color=#86abee&group=Master
+groupPanel = type=generic,timeout=10,script-path=groupPanel.js,argument=icon=network&color=#86abee&group=Master
   对应参数：
 	icon：图标
 	color：图标颜色
@@ -16,7 +16,8 @@ groupPanel = script-name=groupPanel,update-interval=-1
 let params = getParams($argument);
 let group = params.group;
 let proxy = await httpAPI("/v1/policy_groups");
-
+let groupName = (await httpAPI("/v1/policy_groups/select?group_name=Master")).policy;
+console.log(groupName)
 var proxyName= [];
 
 let arr = proxy[""+group+""];
@@ -26,7 +27,17 @@ proxyName.push(arr[i].name);
 
 }
 
-let index =Number($persistentStore.read([group]));
+let index;
+
+for(let i = 0;i < proxyName.length; ++i) {
+	if(groupName==proxyName[i]){
+index=i+1
+	}
+}
+
+if(index>arr.length-1){
+	index = 0;
+}
 
 let body = {"group_name": group, "policy": proxyName[index]}
 let name =proxyName[index];
@@ -36,15 +47,6 @@ if(arr[index].isGroup==true){
 	name=name + ' ➟ ' + rootName;
 }
 
-
-
-index += 1;
-
-if(index>arr.length-1){
-	index = 0;
-}
-
-$persistentStore.write(""+index+"", [group])
 
 await httpAPI("/v1/policy_groups/select","POST",body);
     $done({
