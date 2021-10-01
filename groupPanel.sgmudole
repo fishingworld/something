@@ -1,3 +1,6 @@
+#!name=groupPanel
+#!desc=通过panel显示及控制策略组
+
 [Script]
 groupPanel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/fishingworld/something/main/grouppanel.js,argument=icon=network&color=#86abee&group=Master
   #对应参数：
