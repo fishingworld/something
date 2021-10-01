@@ -1,5 +1,5 @@
 #!name=groupPanel
-#!desc=通过panel显示及控制策略组
+#!desc=通过panel显示及控制策略组 写的乱七八糟，能用就行
 
 [Script]
 groupPanel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/fishingworld/something/main/grouppanel.js,argument=icon=network&color=#86abee&group=Master
