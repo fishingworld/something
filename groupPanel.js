@@ -14,9 +14,9 @@ groupPanel = script-name=groupPanel,update-interval=5
 ;(async () => {
 
 let params = getParams($argument);
-let group = params.group;
+let group=params.group;
 let proxy = await httpAPI("/v1/policy_groups");
-let groupName = (await httpAPI("/v1/policy_groups/select?group_name="+group+"")).policy;
+let groupName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(group)+"")).policy;
 var proxyName= [];
 let arr = proxy[""+group+""];
 let allGroup = [];
@@ -51,11 +51,11 @@ $surge.setSelectGroupPolicy(group, proxyName[index]);
 let name =proxyName[index];
 let rootName = name;
 if(rootName=="Master"){
-	name = name + ' ➟ ' + (await httpAPI("/v1/policy_groups/select?group_name="+rootName+"")).policy;
+	name = name + ' ➟ ' + (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(rootName)+"")).policy;
 }
 
 while(allGroup.includes(rootName)==true){
-	rootName = (await httpAPI("/v1/policy_groups/select?group_name="+rootName+"")).policy;
+	rootName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(rootName)+"")).policy;
 }
 
 name=name + ' ➟ ' + rootName;
@@ -85,6 +85,3 @@ function getParams(param) {
       .map(([k, v]) => [k, decodeURIComponent(v)])
   );
 }
-
-
-
