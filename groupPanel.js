@@ -33,11 +33,7 @@ index=i
 };
 
 if($trigger == "button"){
-for(let i = 0;i < proxyName.length; ++i) {
-	if(groupName==proxyName[i]){
-index=i+1
-	}
-}
+index += 1;
 
 if(index>arr.length-1){
 	index = 0;
