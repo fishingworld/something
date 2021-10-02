@@ -38,9 +38,8 @@ index += 1;
 if(index>arr.length-1){
 	index = 0;
 	}
-
-let body = {"group_name": group, "policy": proxyName[index]};
-await httpAPI("/v1/policy_groups/select","POST",body);
+	
+$surge.setSelectGroupPolicy(group, proxyName[index]);
 };
 
 let name =proxyName[index];
