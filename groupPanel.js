@@ -19,6 +19,12 @@ let proxy = await httpAPI("/v1/policy_groups");
 let groupName = (await httpAPI("/v1/policy_groups/select?group_name="+group+"")).policy;
 var proxyName= [];
 let arr = proxy[""+group+""];
+let allGroup = [];
+
+for (var key in proxy){
+   allGroup.push(key)
+    }
+
 
 for (let i = 0; i < arr.length; ++i) {
 proxyName.push(arr[i].name);
@@ -38,16 +44,21 @@ index += 1;
 if(index>arr.length-1){
 	index = 0;
 	}
-	
 $surge.setSelectGroupPolicy(group, proxyName[index]);
+
 };
 
 let name =proxyName[index];
-let rootName;
-if(arr[index].isGroup==true){
-	rootName = (await httpAPI("/v1/policy_groups/select?group_name="+name+"")).policy;
-	name=name + ' ➟ ' + rootName;
+let rootName = name;
+if(rootName=="Master"){
+	name = name + ' ➟ ' + (await httpAPI("/v1/policy_groups/select?group_name="+rootName+"")).policy;
 }
+
+while(allGroup.includes(rootName)==true){
+	rootName = (await httpAPI("/v1/policy_groups/select?group_name="+rootName+"")).policy;
+}
+
+name=name + ' ➟ ' + rootName;
 
     $done({
       title:group,
