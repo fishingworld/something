@@ -58,7 +58,9 @@ while(allGroup.includes(rootName)==true){
 	rootName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(rootName)+"")).policy;
 }
 
+if(arr[index].isGroup==true){
 name=name + ' ➟ ' + rootName;
+}
 
     $done({
       title:group,
