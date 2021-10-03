@@ -34,13 +34,8 @@ proxyName.push(arr[i].name);
    * 遍历测试节点组
    */
 
-//读取持久化数据
-
 var fullUnlock=[];
 var onlyOriginal=[];
-
-fullUnlock = $persistentStore.read("fullUnlockNetflix").split(",");
-onlyOriginal= $persistentStore.read("onlyOriginalNetflix").split(",");
 
 
 //仅自动更新时遍历
@@ -69,7 +64,6 @@ if(status===2){
 		}
 	}
   }
-}
 
 //去除杂项
 for (let i = 0; i < fullUnlock.length; ++i){
@@ -84,15 +78,18 @@ for (let i = 0; i < onlyOriginal.length; ++i){
 	}
 }
 
-
-
-//打印测试结果
-console.log("全解锁："+fullUnlock)
-console.log("自制："+onlyOriginal)
-console.log($persistentStore.read("fullUnlockNetflix").split(","))
 // 创建持久化数据
 $persistentStore.write(fullUnlock.toString(),"fullUnlockNetflix");
 $persistentStore.write(onlyOriginal.toString(),"onlyOriginalNetflix")
+}
+
+//读取持久化数据
+fullUnlock = $persistentStore.read("fullUnlockNetflix").split(",");
+onlyOriginal= $persistentStore.read("onlyOriginalNetflix").split(",");
+
+//打印测试结果
+console.log("全解锁:"+fullUnlock.sort())
+console.log("仅自制:"+onlyOriginal.sort())
 
 
 /**
@@ -103,7 +100,6 @@ $persistentStore.write(onlyOriginal.toString(),"onlyOriginalNetflix")
 var select=[];
 if(fullUnlock.length>0){
 	for (let i = 0; i < fullUnlock.length; ++i) {
-	console.log(proxyName.includes(fullUnlock[i]))
 	if(proxyName.includes(fullUnlock[i])==true){
 		select.push(fullUnlock[i])
 		}
@@ -111,7 +107,6 @@ if(fullUnlock.length>0){
 	$persistentStore.write(select.sort().toString(),"fullUnlockNetflix");
 }else if(fullUnlock.length==0&&onlyOriginal.length>0){
 	for (let i = 0; i < onlyOriginal.length; ++i) {
-	console.log(proxyName.includes(onlyOriginal[i]))
 	if(proxyName.includes(onlyOriginal[i])==true){
 		select.push(onlyOriginal[i])
 		}
@@ -119,15 +114,13 @@ if(fullUnlock.length>0){
 	$persistentStore.write(select.sort().toString(),"onlyOriginalNetflix")
 }
 
-console.log($persistentStore.read("fullUnlockNetflix").split(","))
-console.log("test")
-console.log(select)
+console.log("选择列表:"+select.sort())
 
 
 
 //当前节点
 groupName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(netflixGroup)+"")).policy;
-console.log(groupName)
+console.log("当前节点:"+groupName)
 
 
 //轮循切换
@@ -136,7 +129,7 @@ let index = select.indexOf(groupName)+1;
 if(index>=select.length){
 	index=0
 }
-console.log(select.length+" | "+ select[index] +" | "+index)
+console.log("目标节点:"+ select[index])
 
 $surge.setSelectGroupPolicy(netflixGroup, select[index]);
 
@@ -146,7 +139,7 @@ await timeout(1000).catch(() => {})
 
 let { status, regionCode, policyName } = await testPolicy(select[index]);
 
-console.log(status)
+console.log("节点状态:"+status)
 
 
 /**
@@ -159,24 +152,20 @@ let panel = {
   title: `${title}`,
 }
 
-console.log(panel)
   // 完整解锁
   if (status==2) {
     panel['content'] = `完整支援Netflix，区域：${regionCode}`
     panel['icon'] = params.icon1
 	 panel['icon-color'] = params.color1
-	console.log(panel)
   } else if (status==1) {
       panel['content'] = `解锁自制内容`
       panel['icon'] = params.icon2
 	   panel['icon-color'] = params.color2
-		console.log(panel)
     }else {
  		$surge.setSelectGroupPolicy(netflixGroup, first);
   		panel['content'] = `您的节点连自制内容都不支持呢～`
   		panel['icon'] = params.icon3
 	 	panel['icon-color'] = params.color3
-		console.log(panel)
 		return
 	}
 
@@ -266,25 +255,6 @@ function timeout(delay = 5000) {
       reject('Timeout')
     }, delay)
   })
-}
-
-function getOptions() {
-  let options = Object.assign({}, DEFAULT_OPTIONS)
-  if (typeof $argument != 'undefined') {
-    try {
-      let params = Object.fromEntries(
-        $argument
-          .split('&')
-          .map(item => item.split('='))
-          .map(([k, v]) => [k, decodeURIComponent(v)])
-      )
-      Object.assign(options, params)
-    } catch (error) {
-      console.error(`$argument 解析失败，$argument: + ${argument}`)
-    }
-  }
-
-  return options
 }
 
 function getParams(param) {
