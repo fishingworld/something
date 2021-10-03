@@ -101,6 +101,8 @@ console.log("目标节点:"+ select[index])
 
 $surge.setSelectGroupPolicy(netflixGroup, select[index]);
 
+await timeout(1000).catch(() => {})
+
 }
 
 
@@ -114,8 +116,6 @@ $surge.setSelectGroupPolicy(netflixGroup, select[index]);
 groupName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(netflixGroup)+"")).policy;
 console.log("当前节点:"+groupName)
 
-await timeout(1000).catch(() => {})
-
 let { status, regionCode, policyName } = await testPolicy(groupName);
 
 console.log("节点状态:"+status)
@@ -123,6 +123,11 @@ console.log("节点状态:"+status)
 //当前节点解锁范围小于选择列表时，执行自动切换
 if(status!= 2 && fullUnlock.length>0){
 	$surge.setSelectGroupPolicy(netflixGroup, select[0]);
+
+await timeout(1000).catch(() => {})
+
+let { status, regionCode, policyName } = await testPolicy(groupName);
+
 }
 
 //获取根节点名
@@ -141,7 +146,7 @@ let panel = {
   title: `${title}`,
 }
 
-  // 完整解锁
+  
   if (status==2) {
     panel['content'] = `完整支援Netflix，区域：${regionCode}`
     panel['icon'] = params.icon1
