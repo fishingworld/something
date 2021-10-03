@@ -1,4 +1,6 @@
 /*	脚本已经比较成熟了，但难免还会有bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
+
+最近更新：修复嵌套策略组显示undefined
 脚本说明：
 	1:本脚本修改自 @Helge_0x00 
 	2:脚本在自动更新时刷新持久化数据（可解锁节点列表）
@@ -28,6 +30,10 @@ let arr = proxy[""+netflixGroup+""];
 for (let i = 0; i < arr.length; ++i) {
 proxyName.push(arr[i].name);
 }
+let allGroup = [];
+for (var key in proxy){
+   allGroup.push(key)
+    }
 
 
 /**
@@ -143,12 +149,17 @@ let { status, regionCode, policyName } = await testPolicy(select[index]);
 
 console.log("节点状态:"+status)
 
+//获取根节点名
+let rootName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(netflixGroup)+"")).policy;
+while(allGroup.includes(rootName)==true){
+	rootName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(rootName)+"")).policy;
+}
 
 /**
    * 面板显示
    */
 
-let title = "Netflix ➟ " + select[index];
+let title = "Netflix ➟ " + rootName;
 
 let panel = {
   title: `${title}`,
