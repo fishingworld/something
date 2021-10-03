@@ -15,9 +15,13 @@
  5: cron脚本用于遍历Netflix策略组，以获取节点列表，你可以通过配置cron表达式以修改执行频率
  
  6:可用的自定义参数：
-icon1 color1:全解锁时的图标及颜色
+ 
+ icon1 color1:全解锁时的图标及颜色
+
  icon2 color2:仅自制时的图标及颜色
+ 
  icon3 color3:无可用节点的图标及颜色
+ 
  netflixGroup：网飞策略组名称
 
 https://github.com/fishingworld/something/blob/main/NetflixSelect/NetflixSelect.sgmudule
