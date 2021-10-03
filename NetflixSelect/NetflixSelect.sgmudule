@@ -1,0 +1,11 @@
+#!name=NetflixSelect
+#!desc=通过panel显示及控制Netflix策略组
+
+
+[Panel]
+nf_policy_select = script-name=nf_policy_select, update-interval=100
+
+
+[Script]
+遍历Netflix策略组 = type=cron,cronexp=2 9 * * *,wake-system=1,timeout=3600,script-path=nf_autocheck.js,script-update-interval=0,argument=netflixGroup=Netflix
+nf_policy_select = type=generic, script-path=nf_autoselect.js, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=hand.raised.circle&color3=#ea5532&netflixGroup=Netflix
