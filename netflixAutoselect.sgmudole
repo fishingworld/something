@@ -3,22 +3,20 @@
 
 #脚本经本人测试已经可以正常运行，但仍可能存在bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
 #脚本说明：
-	1:本脚本修改自 @Helge_0x00 
-	2:脚本在自动更新时刷新持久化数据（可解锁节点列表），你可以在日志内查看这些数据
-	3:为了节省效能，请尽量精简策略组
-	4:点击panel时切换至下一个可解锁节点
-	5:检测数据有一定概率会出错，且网飞数据会有所变动，因此你可能遇到切换至非全解锁节点，此时切换至下一个即可，毕竟这是概率较小的事件，大部分检测都是正确的，待下一次自动更新时，节点列表将得到更新与修正
-	6:可用的自定义参数：
-	icon1 color1:全解锁时的图标及颜色
-	icon2 color2:仅自制时的图标及颜色
-	icon3 color3:无可用节点的图标及颜色
-	netflixGroup：网飞策略组名称
+#1:本脚本修改自 @Helge_0x00 
+#2:脚本在自动更新时刷新持久化数据（可解锁节点列表），你可以在日志内查看这些数据
+#3:为了节省效能，请尽量精简策略组
+#4:点击panel时切换至下一个可解锁节点
+#5:检测数据有一定概率会出错，且网飞数据会有所变动，因此你可能遇到切换至非全解锁节点，此时切换至下一个即可，毕竟这是概率较小的事件，大部分检测都是正确的，待下一次自动更新时，节点列表将得到更新与修正
+#6:可用的自定义参数：
+#icon1 color1:全解锁时的图标及颜色
+#icon2 color2:仅自制时的图标及颜色
+#icon3 color3:无可用节点的图标及颜色
+#netflixGroup：网飞策略组名称
+	
 
 [Script]
 groupPanel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/fishingworld/something/main/groupPanel.js,argument=icon=network&color=#86abee&group=Master
-  #对应参数：
-	#icon：图标
-	#color：图标颜色
-	#group：策略组名称
+
 [Panel]
 groupPanel = script-name=groupPanel,update-interval=5
