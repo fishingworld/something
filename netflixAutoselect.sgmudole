@@ -16,7 +16,7 @@
 	
 
 [Script]
-netflixAutoselect = type=generic, script-path=nf_autoselect_test.js, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=xmark.shield&color3=#AF52DE&netflixGroup=Netflix
+netflixAutoselect = type=generic, script-path=https://raw.githubusercontent.com/fishingworld/something/main/nf_autoselect_test.js, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=xmark.shield&color3=#AF52DE&netflixGroup=Netflix
 
 [Panel]
 netflixAutoselect = script-name=netflixAutoselect, update-interval=86400
