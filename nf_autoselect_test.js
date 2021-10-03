@@ -1,4 +1,4 @@
-/*	脚本已经比较成熟了，但难免还会有bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
+/*脚本已经比较成熟了，但难免还会有bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
 
 最近更新：修复全解锁列表为空时无法切换至自制列表
 	嵌套策略组下，面板显示内容更新为根节点名称
@@ -106,9 +106,13 @@ console.log("仅自制:"+onlyOriginal.sort())
 //删除策略组外节点并更新持久化数据
 var select=[];
 
+if(fullUnlock.toString().length==0){
+fullUnlock.splice(fullUnlock.indexOf(fullUnlock[0]), 1)
+}
+
 console.log(fullUnlock.length+" | "+ onlyOriginal.length)
 
-if(fullUnlock.length>1){
+if(fullUnlock.length>0){
 	for (let i = 0; i < fullUnlock.length; ++i) {
 	if(proxyName.includes(fullUnlock[i])==false){
 		fullUnlock.splice(fullUnlock.indexOf(fullUnlock[i]), 1)
@@ -116,7 +120,7 @@ if(fullUnlock.length>1){
 	}
 	select = fullUnlock
 	$persistentStore.write(select.sort().toString(),"fullUnlockNetflix");
-}else if(fullUnlock.length==1&&onlyOriginal.length>1){
+}else if(fullUnlock.length==0&&onlyOriginal.length>0){
 	for (let i = 0; i < onlyOriginal.length; ++i) {
 	if(proxyName.includes(onlyOriginal[i])==false){
 		onlyOriginal.splice(onlyOriginal.indexOf(onlyOriginal[i]), 1)
