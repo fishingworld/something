@@ -1,11 +1,10 @@
 /*	脚本经本人测试已经可以正常运行，但仍可能存在bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
 脚本说明：
 	1:本脚本修改自 @Helge_0x00 
-	2:脚本在自动更新时刷新持久化数据（可解锁节点列表），你可以在日志内查看这些数据
-	3:为了节省效能，请尽量精简策略组
-	4:点击panel时切换至下一个可解锁节点
-	5:检测数据有一定概率会出错，且网飞数据会有所变动，因此你可能遇到切换至非全解锁节点，此时切换至下一个即可，毕竟这是概率较小的事件，大部分检测都是正确的，待下一次自动更新时，节点列表将得到更新与修正
-	6:可用的自定义参数：
+	2:脚本在自动更新时刷新持久化数据（可解锁节点列表）
+	3:点击panel时切换至下一个可解锁节点
+	4:检测数据有一定概率会出错，且网飞数据会有所变动，因此你可能遇到切换至非全解锁节点，此时切换至下一个即可，毕竟这是概率较小的事件，大部分检测都是正确的，待下一次自动更新时，节点列表将得到更新与修正
+	5:可用的自定义参数：
 	icon1 color1:全解锁时的图标及颜色
 	icon2 color2:仅自制时的图标及颜色
 	icon3 color3:无可用节点的图标及颜色
@@ -50,36 +49,47 @@ if($trigger == "auto-interval"){
 
 for (let i = 0; i < proxyName.length; ++i) {
 //切换节点
-$surge.setSelectGroupPolicy("Netflix", proxyName[i]);
+$surge.setSelectGroupPolicy(netflixGroup, proxyName[i]);
 //等待
 await timeout(1000).catch(() => {})
 //执行测试
 
 let { status, regionCode, policyName } = await testPolicy(proxyName[i]);
 
-//填充与修正数据
+//填充数据
 if(status===2){
 	if(fullUnlock.includes(proxyName[i])==false){
 	fullUnlock.push(proxyName[i])
-	onlyOriginal.splice(onlyOriginal.indexOf(proxyName[i]), 1)
+	console.log("全解锁: "+proxyName[i]+" | "+status)
 		}
 	}else if(status===1){
 		if(onlyOriginal.includes(proxyName[i])==false){
 		onlyOriginal.push(proxyName[i])
-		fullUnlock.splice(fullUnlock.indexOf(proxyName[i]), 1)
+		console.log("仅自制: "+proxyName[i]+" | "+status)
 		}
-	}else{
-		onlyOriginal.splice(onlyOriginal.indexOf(proxyName[i]), 1)
-		fullUnlock.splice(fullUnlock.indexOf(proxyName[i]), 1)
-		}
+	}
   }
 }
 
+//去除杂项
+for (let i = 0; i < fullUnlock.length; ++i){
+	if(onlyOriginal.includes(fullUnlock[i])==true){
+	fullUnlock.splice(fullUnlock.indexOf(fullUnlock[i]), 1)
+	}
+}
+
+for (let i = 0; i < onlyOriginal.length; ++i){
+	if(fullUnlock.includes(onlyOriginal[i])==true){
+	onlyOriginal.splice(onlyOriginal.indexOf(onlyOriginal[i]), 1)
+	}
+}
+
+
+
 //打印测试结果
-
-console.log("全解锁："+fullUnlock. sort())
-console.log("自制："+onlyOriginal. sort())
-
+console.log("全解锁："+fullUnlock)
+console.log("自制："+onlyOriginal)
+console.log($persistentStore.read("fullUnlockNetflix").split(","))
 // 创建持久化数据
 $persistentStore.write(fullUnlock.toString(),"fullUnlockNetflix");
 $persistentStore.write(onlyOriginal.toString(),"onlyOriginalNetflix")
@@ -93,7 +103,7 @@ $persistentStore.write(onlyOriginal.toString(),"onlyOriginalNetflix")
 var select=[];
 if(fullUnlock.length>0){
 	for (let i = 0; i < fullUnlock.length; ++i) {
-	
+	console.log(proxyName.includes(fullUnlock[i]))
 	if(proxyName.includes(fullUnlock[i])==true){
 		select.push(fullUnlock[i])
 		}
@@ -101,18 +111,23 @@ if(fullUnlock.length>0){
 	$persistentStore.write(select.sort().toString(),"fullUnlockNetflix");
 }else if(fullUnlock.length==0&&onlyOriginal.length>0){
 	for (let i = 0; i < onlyOriginal.length; ++i) {
-
+	console.log(proxyName.includes(onlyOriginal[i]))
 	if(proxyName.includes(onlyOriginal[i])==true){
-		select.push(fullUnlock[i])
+		select.push(onlyOriginal[i])
 		}
 	}
 	$persistentStore.write(select.sort().toString(),"onlyOriginalNetflix")
 }
 
+console.log($persistentStore.read("fullUnlockNetflix").split(","))
+console.log("test")
+console.log(select)
+
 
 
 //当前节点
 groupName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(netflixGroup)+"")).policy;
+console.log(groupName)
 
 
 //轮循切换
@@ -121,8 +136,9 @@ let index = select.indexOf(groupName)+1;
 if(index>=select.length){
 	index=0
 }
+console.log(select.length+" | "+ select[index] +" | "+index)
 
-$surge.setSelectGroupPolicy("Netflix", select[index]);
+$surge.setSelectGroupPolicy(netflixGroup, select[index]);
 
 //测试当前选择
 
@@ -130,6 +146,7 @@ await timeout(1000).catch(() => {})
 
 let { status, regionCode, policyName } = await testPolicy(select[index]);
 
+console.log(status)
 
 
 /**
@@ -142,22 +159,30 @@ let panel = {
   title: `${title}`,
 }
 
+console.log(panel)
   // 完整解锁
   if (status==2) {
     panel['content'] = `完整支援Netflix，区域：${regionCode}`
     panel['icon'] = params.icon1
 	 panel['icon-color'] = params.color1
+	console.log(panel)
   } else if (status==1) {
       panel['content'] = `解锁自制内容`
       panel['icon'] = params.icon2
 	   panel['icon-color'] = params.color2
+		console.log(panel)
     }else {
- 		$surge.setSelectGroupPolicy("Netflix", first);
+ 		$surge.setSelectGroupPolicy(netflixGroup, first);
   		panel['content'] = `您的节点连自制内容都不支持呢～`
   		panel['icon'] = params.icon3
 	 	panel['icon-color'] = params.color3
+		console.log(panel)
 		return
 	}
+
+
+
+console.log(panel)
 
     $done(panel)
 
