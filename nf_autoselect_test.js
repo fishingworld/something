@@ -100,17 +100,19 @@ console.log("仅自制:"+onlyOriginal.sort())
 var select=[];
 if(fullUnlock.length>0){
 	for (let i = 0; i < fullUnlock.length; ++i) {
-	if(proxyName.includes(fullUnlock[i])==true){
-		select.push(fullUnlock[i])
+	if(proxyName.includes(fullUnlock[i])==false){
+		fullUnlock.splice(fullUnlock.indexOf(fullUnlock[i]), 1)
 		}
 	}
+	select = fullUnlock
 	$persistentStore.write(select.sort().toString(),"fullUnlockNetflix");
 }else if(fullUnlock.length==0&&onlyOriginal.length>0){
 	for (let i = 0; i < onlyOriginal.length; ++i) {
-	if(proxyName.includes(onlyOriginal[i])==true){
-		select.push(onlyOriginal[i])
+	if(proxyName.includes(onlyOriginal[i])==false){
+		onlyOriginal.splice(onlyOriginal.indexOf(onlyOriginal[i]), 1)
 		}
 	}
+	select = onlyOriginal
 	$persistentStore.write(select.sort().toString(),"onlyOriginalNetflix")
 }
 
