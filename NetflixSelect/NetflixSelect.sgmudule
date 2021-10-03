@@ -3,7 +3,7 @@
 
 
 [Panel]
-NetflixSelect = script-name=NetflixSelect, update-interval=100
+NetflixSelect = script-name=NetflixSelect, update-interval=10
 
 
 [Script]
