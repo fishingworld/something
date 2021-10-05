@@ -25,9 +25,8 @@ groupPanel= script-name=groupPanel,update-interval=5
 #附带重载配置,Surge Pro标题,可显示启动时间,点击刷新为重载配置
 SurgePro_ReloadProfile = type=generic,timeout=10,script-path= https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/surgepro_reloadprofile.js ,argument=icon=crown.fill&color=#f6c970
 
-#流量统计
-#可修改的字段：network 填写en0为WiFi pdp_ip0 pdp_ip1
-TrafficStatistics = type=generic,timeout=10,script-path= https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/trafficstatistics.js ,argument=icon=arrow.up.arrow.down.circle&color=#5d84f8&network=en0
+#流量统计 点击以切换网络界面
+TrafficStatistics = type=generic,timeout=10,script-path= https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/trafficstatistics.js ,argument=icon=arrow.up.arrow.down.circle&color=#5d84f8
 
 #網路詳情 标题显示为根节点名
 #应当修改的字段 group 代理策略组名称
