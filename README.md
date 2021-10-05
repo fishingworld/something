@@ -43,7 +43,7 @@ TrafficStatistics = type=generic,timeout=10,script-path=TrafficStatistics.js,arg
 NET_info = type=generic,timeout=10,script-path=NET_info.js,argument=icon=externaldrive.connected.to.line.below&color=#9a7ff7
 
 #流量信息
-Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js,script-update-interval=0,argument=url=(URL encode后的机场节点链接)&reset_day=1&title=AmyInfo
+Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js ,script-update-interval=0,argument=url=(URL encode后的机场节点链接)&reset_day=1&title=AmyInfo
 Sub_info = type=generic,timeout=10,script-path=sub_info_panel.js,script-update-interval=0,argument=url=此处填写你的订阅&title=ExFlux&icon=opticaldisc&color=#5AC8FA
 
 #NF解锁检测
