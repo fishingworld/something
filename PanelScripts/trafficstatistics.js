@@ -15,7 +15,7 @@ let inMaxSpeed = speedTransform(network.inMaxSpeed) //最大下载速度
 let inCurrentSpeed = speedTransform(network.inCurrentSpeed) //下载速度
 
   $done({
-      title:"流量统计 | WiFi",
+      title:"流量统计",
       content:`流量 ➟ ${upload} | ${download}\n`+
       `速度 ➟ ${outCurrentSpeed} | ${inCurrentSpeed}\n` +
 		`峰值 ➟ ${outMaxSpeed} | ${inMaxSpeed}`,
