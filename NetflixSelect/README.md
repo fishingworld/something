@@ -4,7 +4,7 @@
 
 ![MwnEmy7sJFHiBaT](https://i.loli.net/2021/10/05/MwnEmy7sJFHiBaT.jpg)
 
-脚本经本人测试已经可以正常运行，但仍可能存在bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
+脚本已经具备成熟的功能，但仍可能存在bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
 
 模块说明：
 
