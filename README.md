@@ -12,9 +12,10 @@
 #!desc=信息面板
 
 [Panel]
+
 #Surge Pro标题,可显示启动时间,点击刷新为重载配置
 
-SurgePro_ ReloadProfile = script-name=SurgePro_ ReloadProfile,update-interval=1
+SurgePro_ReloadProfile = script-name=SurgePro_ReloadProfile,update-interval=1
 
 #流量统计
 
@@ -47,15 +48,19 @@ TrafficStatistics = type=generic,timeout=10,script-path= https://raw.githubuserc
 #流量信息
 
 #必须添加的字段:你encode后的机场订阅链接
+
 Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js ,script-update-interval=0,argument=url=[URL encode 后的机场节点链接]&reset_day=1&title=title=ExFlux&icon=opticaldisc&color=#5AC8FA
 
 #策略组面板
 
 #必须更改的字段：group 填写需要显示的策略组名称
+
 groupPanel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/fishingworld/something/main/groupPanel.js ,argument=icon=network&color=#86abee&group=Master
 
 #netflix策略组控制
+
 #必须更改的字段 netflixGroup 填写你Netflix策略组名称
+
 #详情请阅读：https://github.com/fishingworld/something/blob/main/NetflixSelect/README.md
 
 NetflixSelect = type=generic, script-path=https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/nf_autoselect.js, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=hand.raised.circle&color3=#ea5532&netflixGroup=Netflix
