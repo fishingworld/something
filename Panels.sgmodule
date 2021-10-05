@@ -17,7 +17,7 @@ Sub_info = script-name=Sub_info,update-interval = 43200
 #Netflix策略组自动控制
 NetflixSelect = script-name=NetflixSelect, update-interval=3600
 
-#策略组面板
+#策略组面板 可重复配置 注意修改相应字段
 groupPanel= script-name=groupPanel,update-interval=5
 
 
@@ -37,7 +37,7 @@ NET_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com
 #必须修改的字段:你encode后的机场订阅链接
 Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js ,script-update-interval=0,argument=url=[URL encode 后的机场节点链接]&reset_day=1&title=title=ExFlux&icon=opticaldisc&color=#5AC8FA
 
-#策略组面板
+#策略组面板 可重复配置 注意修改相应字段
 #必须更改的字段：group 填写需要显示的策略组名称
 groupPanel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/fishingworld/something/main/groupPanel.js ,argument=icon=network&color=#86abee&group=Master
 
