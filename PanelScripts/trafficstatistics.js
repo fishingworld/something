@@ -11,6 +11,7 @@ for (var key in interface){
    allNet.push(key)
     }
 console.log(allNet.length)
+console.log(allNet)
 
 let net;
 let index;
