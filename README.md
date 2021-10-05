@@ -12,9 +12,9 @@
 #!desc=信息面板
 
 [Panel]
-#Surge Pro标题,可显示启动时间,点击刷新为清空DNS缓存
+#Surge Pro标题,可显示启动时间,点击刷新为重载配置
 
-SurgePro_FlushDNS = script-name=SurgePro_FlushDNS,update-interval=1
+SurgePro_ ReloadProfile = script-name=SurgePro_ ReloadProfile,update-interval=1
 
 #流量统计
 
@@ -32,9 +32,9 @@ groupPanelMaster= script-name=groupPanelMaster,update-interval=5
 
 [Script]
 
-#附带清理DNS缓存,Surge Pro标题,可显示启动时间,点击刷新为清空DNS缓存
+#重载配置,Surge Pro标题,可显示启动时间,点击刷新为重载配置
 
-SurgePro_FlushDNS = type=generic,timeout=10,script-path=SurgePro_FlushDNS.js,argument=icon=crown.fill&color=#f6c970
+SurgePro_ ReloadProfile = type=generic,timeout=10,script-path= https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/surgepro_reloadprofile.js ,argument=icon=crown.fill&color=#f6c970
 
 #流量统计
 #必须更改的字段:inter en0为WiFi pdp_ip0为卡1 pdp_ip1为卡2
