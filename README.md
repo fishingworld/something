@@ -10,8 +10,11 @@
 #!desc=信息面板
 
 [Panel]
+#Surge Pro标题,可显示启动时间,点击刷新为清空DNS缓存
 
 SurgePro_FlushDNS = script-name=SurgePro_FlushDNS,update-interval=1
+
+#流量统计
 
 TrafficStatistics = script-name=TrafficStatistics,update-interval=1
 
@@ -26,36 +29,29 @@ groupPanelMaster= script-name=groupPanelMaster,update-interval=5
 
 
 [Script]
-#测试脚本
 
-test = type=generic,timeout=10,script-path=test.js,argument=icon=arrow.clockwise.circle&color=#ef5b9c,debug=true
-
-#附带清理DNS缓存
+#附带清理DNS缓存,Surge Pro标题,可显示启动时间,点击刷新为清空DNS缓存
 
 SurgePro_FlushDNS = type=generic,timeout=10,script-path=SurgePro_FlushDNS.js,argument=icon=crown.fill&color=#f6c970
 
 #流量统计
+#必须更改的字段:inter en0为WiFi pdp_ip0为卡1 pdp_ip1为卡2
 
 TrafficStatistics = type=generic,timeout=10,script-path=TrafficStatistics.js,argument=icon=arrow.up.arrow.down.circle&color=#5d84f8
 
-#網路詳情
-
+#網路詳情 标题显示为根节点名
+#必须更改的字段：group 填写主要策略组
 NET_info = type=generic,timeout=10,script-path=NET_info.js,argument=icon=externaldrive.connected.to.line.below&color=#9a7ff7
 
 #流量信息
-Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js ,script-update-interval=0,argument=url=(URL encode后的机场节点链接)&reset_day=1&title=AmyInfo
-Sub_info = type=generic,timeout=10,script-path=sub_info_panel.js,script-update-interval=0,argument=url=此处填写你的订阅&title=ExFlux&icon=opticaldisc&color=#5AC8FA
-
-#NF解锁检测
-
-nf_check = type=generic,script-path=nf_check.js, timeout=30,argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=hand.raised.circle&color3=#ea5532&icon4=xmark.shield&color4=#AF52DE&title=Netflix Checker
+#必须添加的字段:你encode后的机场订阅链接
+Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js ,script-update-interval=0,argument=url=[URL encode 后的机场节点链接]&reset_day=1&title=title=ExFlux&icon=opticaldisc&color=#5AC8FA
 
 #策略组面板
-
+#必须更改的字段：group 填写需要显示的策略组名称
 groupPanelMaster = type=generic,timeout=10,script-path=groupPanel.js,argument=icon=network&color=#86abee&group=Master
 
-#netflix切换
-
+#netflix策略组控制
+#详情请阅读：https://github.com/fishingworld/something/blob/main/NetflixSelect/README.md
 NetflixSelect = type=generic, script-path=nf_autoselect.js, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=hand.raised.circle&color3=#ea5532&netflixGroup=Netflix
-
 NetflixChecker = type=cron,cronexp=5 4 * * *,wake-system=1,timeout=3600,script-path=nf_autocheck.js,script-update-interval=0,control-api=1
