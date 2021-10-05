@@ -128,6 +128,13 @@ let reg = regionCode
 console.log("节点状态:"+status)
 
 //当前节点不可全解锁时，执行自动切换，若列表为空，仅执行测试
+//连接超时再测一次
+if(status == -1) {
+	let { status, regionCode, policyName } = await testPolicy(groupName);
+	console.log("连接超时了，又测了一次")
+	console.log("当前节点:"+groupName)
+	console.log("节点状态:"+status)
+}
 if(status!= 2){
 	if(select.length>0){
 	//遍历选择列表，找到第一个更优节点
