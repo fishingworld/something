@@ -36,11 +36,6 @@ groupPanelMaster= script-name=groupPanelMaster,update-interval=5
 
 SurgePro_ ReloadProfile = type=generic,timeout=10,script-path= https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/surgepro_reloadprofile.js ,argument=icon=crown.fill&color=#f6c970
 
-#流量统计
-#必须更改的字段:inter en0为WiFi pdp_ip0为卡1 pdp_ip1为卡2
-
-TrafficStatistics = type=generic,timeout=10,script-path=TrafficStatistics.js,argument=icon=arrow.up.arrow.down.circle&color=#5d84f8
-
 #網路詳情 标题显示为根节点名
 
 #流量统计
