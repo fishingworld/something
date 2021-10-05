@@ -26,7 +26,7 @@ Sub_info = script-name=Sub_info,update-interval = 43200
 
 NetflixSelect = script-name=NetflixSelect, update-interval=3600
 
-groupPanelMaster= script-name=groupPanelMaster,update-interval=5
+groupPanel= script-name=groupPanel,update-interval=5
 
 
 
@@ -52,7 +52,7 @@ Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com
 #策略组面板
 
 #必须更改的字段：group 填写需要显示的策略组名称
-groupPanelMaster = type=generic,timeout=10,script-path=groupPanel.js,argument=icon=network&color=#86abee&group=Master
+groupPanel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/fishingworld/something/main/groupPanel.js ,argument=icon=network&color=#86abee&group=Master
 
 #netflix策略组控制
 #必须更改的字段 netflixGroup 填写你Netflix策略组名称
