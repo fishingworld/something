@@ -43,8 +43,11 @@ TrafficStatistics = type=generic,timeout=10,script-path=TrafficStatistics.js,arg
 
 #網路詳情 标题显示为根节点名
 
-#必须更改的字段：group 填写主要策略组
-NET_info = type=generic,timeout=10,script-path=NET_info.js,argument=icon=externaldrive.connected.to.line.below&color=#9a7ff7
+#流量统计
+
+#应当修改的字段：network 填写en0为WiFi pdp_ip0为卡1 pdp_ip1为卡2
+
+TrafficStatistics = type=generic,timeout=10,script-path= https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/trafficstatistics.js ,argument=icon=arrow.up.arrow.down.circle&color=#5d84f8&network=en0
 
 #流量信息
 
