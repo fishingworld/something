@@ -55,7 +55,7 @@ Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com
 groupPanelMaster = type=generic,timeout=10,script-path=groupPanel.js,argument=icon=network&color=#86abee&group=Master
 
 #netflix策略组控制
-
+#必须更改的字段 netflixGroup 填写你Netflix策略组名称
 #详情请阅读：https://github.com/fishingworld/something/blob/main/NetflixSelect/README.md
 
 NetflixSelect = type=generic, script-path=https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/nf_autoselect.js, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=hand.raised.circle&color3=#ea5532&netflixGroup=Netflix
