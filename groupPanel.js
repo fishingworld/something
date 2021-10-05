@@ -49,16 +49,18 @@ $surge.setSelectGroupPolicy(group, proxyName[index]);
 };
 
 let name =proxyName[index];
+let secondName;
 let rootName = name;
-if(rootName=="Master"){
-	name = name + ' ➟ ' + (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(rootName)+"")).policy;
+if(allGroup.includes(rootName)==true){
+	secondName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(rootName)+"")).policy;
+	name = name + ' ➟ ' + secondName
 }
 
 while(allGroup.includes(rootName)==true){
 	rootName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(rootName)+"")).policy;
 }
 
-if(arr[index].isGroup==true){
+if(arr[index].isGroup==true && secondName!= rootName){
 name=name + ' ➟ ' + rootName;
 }
 
