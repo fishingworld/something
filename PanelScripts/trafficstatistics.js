@@ -2,10 +2,42 @@ let params = getParams($argument)
 
 ;(async () => {
 
-let net = params.network
 let traffic = (await httpAPI("/v1/traffic"))
 let interface = traffic.interface
+
+/* 获取所有网络界面 */
+let allNet = [];
+for (var key in interface){
+   allNet.push(key)
+    }
+console.log(allNet.length)
+
+let net;
+let index;
+if( $persistentStore.read("NETWORK")==null){
+	index = 0
+	}else{
+	net = $persistentStore.read("NETWORK")
+	for(let i = 0;i < allNet.length; ++i) {
+		if(net==allNet[i]){
+		index=i
+		}
+	}
+}
+
+/* 手动执行时切换网络界面 */
+if($trigger == "button"){
+	index += 1
+	if(index>=allNet.length) index = 0;
+	$persistentStore.write(allNet[index],"NETWORK")
+};
+	
+
+
+
+net = allNet[index]
 let network = interface[net]
+console.log(network)
 
 let outCurrentSpeed = speedTransform(network.outCurrentSpeed) //上传速度
 let outMaxSpeed = speedTransform(network.outMaxSpeed) //最大上传速度
@@ -14,8 +46,21 @@ let upload = bytesToSize(network.out) //上传流量
 let inMaxSpeed = speedTransform(network.inMaxSpeed) //最大下载速度
 let inCurrentSpeed = speedTransform(network.inCurrentSpeed) //下载速度
 
+/* 判断网络类型 */
+let netType;
+if(net=="en0") {
+	netType = "WiFi"
+	}else if(net=="lo0") {
+	netType = "Localhost"
+	}else{
+	netType = "Cellular"
+	}
+	
+console.log(netType)
+
+
   $done({
-      title:"流量统计",
+      title:"流量统计 | "+netType,
       content:`流量 ➟ ${upload} | ${download}\n`+
       `速度 ➟ ${outCurrentSpeed} | ${inCurrentSpeed}\n` +
 		`峰值 ➟ ${outMaxSpeed} | ${inMaxSpeed}`,
