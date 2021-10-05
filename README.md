@@ -58,6 +58,6 @@ groupPanelMaster = type=generic,timeout=10,script-path=groupPanel.js,argument=ic
 
 #详情请阅读：https://github.com/fishingworld/something/blob/main/NetflixSelect/README.md
 
-NetflixSelect = type=generic, script-path=nf_autoselect.js, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=hand.raised.circle&color3=#ea5532&netflixGroup=Netflix
+NetflixSelect = type=generic, script-path=https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/nf_autoselect.js, argument=icon1=checkmark.circle&color1=#55ba94&icon2=checkmark.circle.trianglebadge.exclamationmark&color2=#9a9ced&icon3=hand.raised.circle&color3=#ea5532&netflixGroup=Netflix
 
-NetflixChecker = type=cron,cronexp=5 4 * * *,wake-system=1,timeout=3600,script-path=nf_autocheck.js,script-update-interval=0,control-api=1
+NetflixChecker = type=cron,cronexp=5 4 * * *,wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/nf_autocheck.js ,script-update-interval=0,control-api=1
