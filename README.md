@@ -6,6 +6,9 @@
 https://raw.githubusercontent.com/fishingworld/something/main/Panels.sgmodule
 
 效果展示：
+
+![image](https://github.com/lexsaints/powershell/blob/master/IMG/ps2.png)
+
 https://i.imgur.com/pUsMwsy.png
 
 https://i.imgur.com/CUDuizW.png
