@@ -9,7 +9,9 @@ https://raw.githubusercontent.com/fishingworld/something/main/Panels.sgmodule
 
 ![image](https://i.imgur.com/pUsMwsy.png)
 
-https://i.imgur.com/pUsMwsy.png
+![image](https://i.imgur.com/CUDuizW.png)
 
-https://i.imgur.com/CUDuizW.png
+
+
+
 
