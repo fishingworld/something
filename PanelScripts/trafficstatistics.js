@@ -27,7 +27,8 @@ if( $persistentStore.read("NETWORK")==null){
 		}
 	}
 }
-
+console.log($persistentStore.read("NETWORK"))
+console.log(net)
 /* 手动执行时切换网络界面 */
 if($trigger == "button"){
 	if(allNet.length>1) index += 1
