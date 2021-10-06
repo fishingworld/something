@@ -10,8 +10,10 @@ let allNet = [];
 for (var key in interface){
    allNet.push(key)
     }
-console.log(allNet.length)
 console.log(allNet)
+if(allNet.includes("lo0")==true){
+allNet.splice(allNet.indexOf("lo0", 1))
+}
 
 let net;
 let index;
@@ -28,17 +30,13 @@ if( $persistentStore.read("NETWORK")==null){
 
 /* 手动执行时切换网络界面 */
 if($trigger == "button"){
-	index += 1
+	if(allNet.length>1) index += 1
 	if(index>=allNet.length) index = 0;
 	$persistentStore.write(allNet[index],"NETWORK")
 };
-	
-
-
 
 net = allNet[index]
 let network = interface[net]
-console.log(network)
 
 let outCurrentSpeed = speedTransform(network.outCurrentSpeed) //上传速度
 let outMaxSpeed = speedTransform(network.outMaxSpeed) //最大上传速度
@@ -51,13 +49,11 @@ let inCurrentSpeed = speedTransform(network.inCurrentSpeed) //下载速度
 let netType;
 if(net=="en0") {
 	netType = "WiFi"
-	}else if(net=="lo0") {
-	netType = "Localhost"
 	}else{
 	netType = "Cellular"
 	}
 	
-console.log(netType)
+console.log(net+" | " + netType)
 
 
   $done({
