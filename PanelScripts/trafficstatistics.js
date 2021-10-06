@@ -17,7 +17,7 @@ allNet.splice(allNet.indexOf("lo0", 1))
 
 let net;
 let index;
-if( $persistentStore.read("NETWORK")==null){
+if( $persistentStore.read("NETWORK")==null||allNet.includes($persistentStore.read("NETWORK"))==false){
 	index = 0
 	}else{
 	net = $persistentStore.read("NETWORK")
