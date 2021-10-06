@@ -10,7 +10,7 @@ let allNet = [];
 for (var key in interface){
    allNet.push(key)
     }
-console.log(allNet)
+
 if(allNet.includes("lo0")==true){
 allNet.splice(allNet.indexOf("lo0", 1))
 }
@@ -27,8 +27,7 @@ if( $persistentStore.read("NETWORK")==null||allNet.includes($persistentStore.rea
 		}
 	}
 }
-console.log($persistentStore.read("NETWORK"))
-console.log(net)
+
 /* 手动执行时切换网络界面 */
 if($trigger == "button"){
 	if(allNet.length>1) index += 1
@@ -53,8 +52,6 @@ if(net=="en0") {
 	}else{
 	netType = "Cellular"
 	}
-	
-console.log(net+" | " + netType)
 
 
   $done({
