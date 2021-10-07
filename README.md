@@ -6,9 +6,9 @@ https://raw.githubusercontent.com/fishingworld/something/main/Panels.sgmodule
 
 效果展示：
 
-![image](https://i.imgur.com/pUsMwsy.png)
+![d9hQHjY](https://i.imgur.com/d9hQHjY.jpg)
 
-![image](https://i.imgur.com/CUDuizW.png)
+![cdHZn09](https://i.imgur.com/cdHZn09.jpg)
 
 
 
