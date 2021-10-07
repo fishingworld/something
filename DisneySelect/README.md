@@ -4,6 +4,8 @@
 
 ![AFEpeZLSXv8yWbo](https://i.loli.net/2021/10/07/AFEpeZLSXv8yWbo.jpg)
 
+![1hVMny8lsGQADef](https://i.loli.net/2021/10/07/1hVMny8lsGQADef.jpg)
+
 脚本已经具备成熟的功能，但仍可能存在bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
 
 脚本说明：
