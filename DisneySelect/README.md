@@ -2,9 +2,9 @@
 
 效果展示：
 
-![AFEpeZLSXv8yWbo](https://i.loli.net/2021/10/07/AFEpeZLSXv8yWbo.jpg)
+![5qy8OTMP9lZx4JW](https://i.loli.net/2021/10/07/5qy8OTMP9lZx4JW.jpg)
 
-![zHyTPo9Gs83mdeu](https://i.loli.net/2021/10/07/zHyTPo9Gs83mdeu.jpg)
+![OP4NofYgsv5piSI](https://i.loli.net/2021/10/07/OP4NofYgsv5piSI.jpg)
 
 脚本已经具备成熟的功能，但仍可能存在bug，使用过程中遇到障碍请联系Telegram：https://t.me/okmytg
 
