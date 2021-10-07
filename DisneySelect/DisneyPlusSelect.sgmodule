@@ -2,7 +2,7 @@
 #!desc=通过panel显示及控制Disney策略组
 
 [Panel]
-DisneyPlusSelect = script-name=DisneyPlusSelect, update-interval=3600
+DisneySelect = script-name=DisneySelect, update-interval=3600
 
 [Script]
 #应当修改的字段 disneyGroup Disney+的策略组名称
