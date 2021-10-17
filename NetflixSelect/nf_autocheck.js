@@ -37,8 +37,16 @@ await timeout(1000).catch(() => {})
 //执行测试
 
 let { status, regionCode, policyName } = await testPolicy(proxyName[i]);
-
+let newStatus=status 
+/* 检测超时 再测一次 */
+if(status <0) {
+	console.log(proxyName[i]+": 连接超时了，再测一次")
+	await timeout(1000).catch(() => {})
+	let { status, regionCode, policyName } = await testPolicy(proxyName[i]);
+	newStatus=status
+}
 //填充数据
+status = newStatus
 if(status===2){
 	if(fullUnlock.includes(proxyName[i])==false){
 	fullUnlock.push(proxyName[i])
