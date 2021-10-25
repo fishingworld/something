@@ -21,6 +21,9 @@
 
 5:参数部分与老版本相同
 
+https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/NetflixController.sgmodule
+
+
 
 
 老版本说明：
