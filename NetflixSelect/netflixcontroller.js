@@ -135,7 +135,10 @@ groupName = (await httpAPI("/v1/policy_groups/select?group_name=" + encodeURICom
       selectList = selectOG
     }
 
-    if (selectList.length > 0) $surge.setSelectGroupPolicy(groupName, selectList[0]);
+	console.log(selectList.length)
+    if (selectList.length > 0) {
+		$surge.setSelectGroupPolicy(groupName, selectList[0]);
+	 }
 	// 更新持久化数据
 	$persistentStore.write(fullUnlock.toString(),"FULLUNLOCK");
 	$persistentStore.write(onlyOriginal.toString(),"ONLYORIGINAL")
