@@ -28,7 +28,7 @@ https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/Netf
 
 
 
-老版本说明：
+❄老版本说明：
 
  1:panel脚本依赖cron脚本传送数据，你应当手动运行一次cron脚本以获取节点列表
  
