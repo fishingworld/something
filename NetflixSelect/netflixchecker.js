@@ -14,7 +14,12 @@ let allGroup = [];
 for (var key in proxy){
    allGroup.push(key)
     }
-var data={}
+var data
+  if($persistentStore.read("NFREGIONCODE") == null){
+	data={}
+	}else{
+	data=JSON.parse($persistentStore.read("NFREGIONCODE"))
+	}
 let dataname;
 var fullUnlock=[];
 var onlyOriginal=[];
