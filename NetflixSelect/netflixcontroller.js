@@ -179,7 +179,7 @@ groupName = (await httpAPI("/v1/policy_groups/select?group_name=" + encodeURICom
     return
   }
 
-  console.log(panel)
+ 
 
   $done(panel)
 
