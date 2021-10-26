@@ -18,7 +18,7 @@ if(status <0) {
 }
 console.log(status)
 if(status===2){
-console.log("当前节点仍可以用 退出检测")
+console.log("当前节点仍可用 退出检测")
 }else{
 
 
