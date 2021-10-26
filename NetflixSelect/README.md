@@ -13,7 +13,7 @@
 
 https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/NetflixController.sgmodule
 
-1:优化版大幅提高了使用效率 你可以更快速的控制你的策略组
+1:优化版实用至上 大幅提高了使用效率 你可以更快速的控制你的策略组
 
 2:首次执行或切换至新的子策略时会花费较长时间 这是在建立索引
 
