@@ -23,8 +23,11 @@ https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/Netf
 
 5:参数部分与老版本相同
 
-
-
+你可以配置捷径自动化实现打开Netflix自动检测 
+配置自动化后可以根据需要减少cron执行频率甚至你可以删除cron脚本
+![s1Lhxg0](https://i.imgur.com/s1Lhxg0.png)
+![ZMWplwo](https://i.imgur.com/ZMWplwo.png)
+![kCGURnZ](https://i.imgur.com/kCGURnZ.jpg)
 
 
 
