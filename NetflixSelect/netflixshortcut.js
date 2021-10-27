@@ -150,7 +150,15 @@ console.log("仅自制:"+onlyOriginal.sort())
   while (allGroup.includes(rootName) == true) {
     rootName = (await httpAPI("/v1/policy_groups/select?group_name=" + encodeURIComponent(rootName) + "")).policy;
   }
-let info = `已选定节点： ${rootName} | ${statusName(newStatus)} | ${reg}`
+	
+let info
+if(newStatus===2){
+info = `已选定节点： ${rootName} | ${statusName(newStatus)} | ${reg}`
+}else if(newStatus===1){
+info = `已选定节点： ${rootName} | ${statusName(newStatus)}`
+}else{
+info = "该策略组暂无可供支援的节点"
+}
 $notification.post("Netflix檢測", info , "")
 
     $done()
