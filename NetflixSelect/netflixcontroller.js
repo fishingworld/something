@@ -180,7 +180,7 @@ groupName = (await httpAPI("/v1/policy_groups/select?group_name=" + encodeURICom
     panel['icon-color'] = params.color2
   } else {
 console.log("test")
-    panel['content'] = `您的节点连自制内容都不支持呢～`
+    panel['content'] = `没有可供支援的节点呢～`
     panel['icon'] = params.icon3
     panel['icon-color'] = params.color3
   }
