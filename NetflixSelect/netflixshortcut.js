@@ -7,6 +7,21 @@ const AREA_TEST_FILM_ID = 80018499
 
 
 ;(async () => {
+
+//测试当前状态
+let { status, regionCode } = await testPolicy();
+if(status <0) {
+	console.log("连接超时了，再测一次")
+	await timeout(1000).catch(() => {})
+	let { status, regionCode } = await testPolicy();
+	console.log(status)
+}
+console.log(status)
+if(status===2){
+console.log("当前节点仍可用 退出检测")
+}else{
+
+
 let netflixGroup = $persistentStore.read("NFGroupName")
 let proxy = await httpAPI("/v1/policy_groups");
 let groupName = (await httpAPI("/v1/policy_groups/select?group_name="+encodeURIComponent(netflixGroup)+"")).policy;
@@ -15,26 +30,6 @@ let allGroup = [];
 for (var key in proxy){
    allGroup.push(key)
     }
-
-//测试当前状态
-let { status, regionCode } = await testPolicy();
-let newStatus=status 
-let reg = regionCode
-if(status <0) {
-	console.log("连接超时了，再测一次")
-	await timeout(1000).catch(() => {})
-	let { status, regionCode } = await testPolicy();
-	newStatus=status 
-	reg = regionCode
-	console.log(newStatus)
-}
-status = newStatus
-regionCode = reg
-console.log(status)
-if(status===2){
-console.log("当前节点仍可用 退出检测")
-}else{
-
 var data
   if($persistentStore.read("NFREGIONCODE") == null){
 	data={}
@@ -47,6 +42,7 @@ var fullUnlock=[];
 var onlyOriginal=[];
 var selectFU=[]
 var selectOG=[]
+
 
 if($persistentStore.read("FULLUNLOCK")==null||$persistentStore.read("ONLYORIGINAL")==null){
 }else{
@@ -85,8 +81,8 @@ await timeout(1000).catch(() => {})
 //执行测试
 
 let { status, regionCode } = await testPolicy();
-newStatus=status 
-reg = regionCode
+let newStatus=status 
+let reg = regionCode
 /* 检测超时 再测一次 */
 if(status <0) {
 	console.log(selectName[i]+": 连接超时了，再测一次")
@@ -148,17 +144,11 @@ $persistentStore.write(JSON.stringify(data),"NFREGIONCODE")
 console.log("全解锁:"+fullUnlock.sort())
 console.log("仅自制:"+onlyOriginal.sort())
 }
-
-  //获取根节点名
-  let rootName = (await httpAPI("/v1/policy_groups/select?group_name=" + encodeURIComponent(netflixGroup) + "")).policy;
-  while (allGroup.includes(rootName) == true) {
-    rootName = (await httpAPI("/v1/policy_groups/select?group_name=" + encodeURIComponent(rootName) + "")).policy;
-  }
-
+	
 let info = `已选定节点： ${rootName} | ${statusName(status)}  地区：${regionCode}`
 $notification.post("Netflix檢測", info , "")
 
-    $done({info})
+    $done()
 
 })();
 
