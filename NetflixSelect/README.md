@@ -27,6 +27,8 @@ https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/Netf
 
 配置自动化后可以根据需要减少cron执行频率甚至你可以删除cron脚本
 
+NetflixShortcut相对于NetflixChecker仅增加一项通知弹窗，如果你不想看到通知 捷径执行的脚本名称应当为NetflixChecker
+
 ![s1Lhxg0](https://i.imgur.com/s1Lhxg0.png)
 
 ![ZMWplwo](https://i.imgur.com/ZMWplwo.png)
