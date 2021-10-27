@@ -9,7 +9,7 @@
 ![MwnEmy7sJFHiBaT](https://i.loli.net/2021/10/05/MwnEmy7sJFHiBaT.jpg)
 
 
-⭐优化版
+⭐优化版（使用新版请删除旧版本）
 
 https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/NetflixController.sgmodule
 
