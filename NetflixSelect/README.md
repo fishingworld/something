@@ -37,7 +37,7 @@ NetflixShortcut相对于NetflixChecker仅增加一项通知弹窗，如果你不
 
 
 
-❄老版本说明：
+❄老版本说明：（老版本可能仍有bug，但已经不再维护）
 
  1:panel脚本依赖cron脚本传送数据，你应当手动运行一次cron脚本以获取节点列表
  
