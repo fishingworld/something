@@ -1,4 +1,4 @@
-# Disney+策略組控制
+# Disney+策略組控制器
 
 使用者反馈：Telegram  https://t.me/okmytg
 
