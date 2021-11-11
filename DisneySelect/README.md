@@ -30,19 +30,23 @@ https://raw.githubusercontent.com/fishingworld/something/main/DisneySelect/Disne
 
 DisneyShortcut相对于DisneyChecker仅增加一项通知弹窗，如果你不想看到通知 捷径执行的脚本名称应当为DisneyChecker
 
-脚本说明：
+![m4E7twi](https://i.imgur.com/m4E7twi.png)
 
- 1:脚本修改自 @Helge_0x00
+![c6wUWif](https://i.imgur.com/c6wUWif.png)
+
+![n6ejErJ](https://i.imgur.com/n6ejErJ.jpg)
+
+❄老版本说明：（老版本可能仍有bug，但已经不再维护）
  
- 2:panel脚本依赖cron脚本传送数据，你应当手动运行一次cron脚本以获取节点列表
+ 1:panel脚本依赖cron脚本传送数据，你应当手动运行一次cron脚本以获取节点列表
  
- 3:点击panel时切换至下一个可解锁节点，节点列表为空时仅执行状态检测
+ 2:点击panel时切换至下一个可解锁节点，节点列表为空时仅执行状态检测
  
- 4:panel脚本允许自动更新，自动更新将刷新策略组信息，并可以自动选择更优选项
+ 3:panel脚本允许自动更新，自动更新将刷新策略组信息，并可以自动选择更优选项
  
- 5: cron脚本用于遍历Disney策略组，以获取节点列表，你可以通过配置cron表达式以修改执行频率
+ 4: cron脚本用于遍历Disney策略组，以获取节点列表，你可以通过配置cron表达式以修改执行频率
  
- 6:可用的自定义参数：
+ 5:可用的自定义参数：
  
  icon1 color1:全解锁时的图标及颜色
 
