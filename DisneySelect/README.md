@@ -1,4 +1,4 @@
-# DisneyPlus策略组自动切换
+# Disney+策略組控制
 
 使用者反馈：Telegram  https://t.me/okmytg
 
