@@ -148,6 +148,8 @@ const STATUS_ERROR = -2
     let info
     if (newStatus === 1) {
       info = `已选定节点： ${rootName} | ${statusName(newStatus)} | ${reg}`
+    } else if (statusData[rootName] == 2) {
+      info = `该地区即将上线 敬请期待哦～`
     } else {
       info = "该策略组暂无可供支援的节点"
     }
