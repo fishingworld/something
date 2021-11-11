@@ -12,7 +12,7 @@
 
 ⭐优化版（使用新版请删除旧版本）
 
-https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/NetflixController.sgmodule
+https://raw.githubusercontent.com/fishingworld/something/main/DisneySelect/DisneyPlusController.sgmodule
 
 1:优化版实用至上 大幅提高了使用效率 你可以更快速的控制你的策略组
 
@@ -28,7 +28,7 @@ https://raw.githubusercontent.com/fishingworld/something/main/NetflixSelect/Netf
 
 配置自动化后可以根据需要减少cron执行频率甚至你可以删除cron脚本
 
-NetflixShortcut相对于DisneyChecker仅增加一项通知弹窗，如果你不想看到通知 捷径执行的脚本名称应当为NetflixChecker
+DisneyShortcut相对于DisneyChecker仅增加一项通知弹窗，如果你不想看到通知 捷径执行的脚本名称应当为DisneyChecker
 
 脚本说明：
 
