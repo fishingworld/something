@@ -34,7 +34,7 @@ DisneyShortcut相对于DisneyChecker仅增加一项通知弹窗，如果你不�
 
 ![c6wUWif](https://i.imgur.com/c6wUWif.png)
 
-![n6ejErJ](https://i.imgur.com/n6ejErJ.jpg)
+![fEqMzsP](https://i.imgur.com/fEqMzsP.jpg)
 
 ❄老版本说明：（老版本可能仍有bug，但已经不再维护）
  
