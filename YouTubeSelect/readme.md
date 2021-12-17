@@ -26,7 +26,7 @@ https://raw.githubusercontent.com/fishingworld/something/main/YouTubeSelect/YouT
 
  icon2 color2:节点异常时的图标及颜色
  
- YouTubeGroup：迪士尼策略组名称（应当修改）
+ YouTubeGroup：YouTube策略组名称（应当修改）
 
 你可以配置捷径自动化实现打开YouTube自动检测 
 
