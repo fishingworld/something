@@ -6,9 +6,7 @@
 
 效果展示：
 
-![APc3kCsf2YDw7K1](https://i.loli.net/2021/10/07/APc3kCsf2YDw7K1.jpg)
-
-![OP4NofYgsv5piSI](https://i.loli.net/2021/10/07/OP4NofYgsv5piSI.jpg)
+![mYjYIik](https://i.imgur.com/mYjYIik.jpg)
 
 ⭐使用规范
 
@@ -36,8 +34,8 @@ https://raw.githubusercontent.com/fishingworld/something/main/YouTubeSelect/YouT
 
 YouTubeShortcut相对于YouTubeChecker仅增加一项通知弹窗，如果你不想看到通知 捷径执行的脚本名称应当为YouTubeChecker
 
-![m4E7twi](https://i.imgur.com/m4E7twi.png)
+![STaRsyw](https://i.imgur.com/STaRsyw.png)
 
-![c6wUWif](https://i.imgur.com/c6wUWif.png)
+![H7E741q](https://i.imgur.com/H7E741q.png)
 
-![fEqMzsP](https://i.imgur.com/fEqMzsP.jpg)
+![xL6Qk5V](https://i.imgur.com/xL6Qk5V.jpg)
