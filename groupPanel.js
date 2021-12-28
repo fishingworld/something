@@ -39,13 +39,11 @@ index=i
 };
 
 if($trigger == "button"){
-index += 1;
-
-if(index>arr.length-1){
-	index = 0;
+for(let i = 0;i < proxyName.length; ++i) {
+	if(groupName==proxyName[i]){
+index=i
 	}
-$surge.setSelectGroupPolicy(group, proxyName[index]);
-
+}
 };
 
 let name =proxyName[index];
